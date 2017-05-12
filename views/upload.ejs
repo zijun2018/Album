@@ -27,28 +27,30 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">全部相册<span class="sr-only">(current)</span></a></li>
-                <li><a href="/upload">上传</a></li>
+                <li><a href="/">全部相册<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/upload">上传</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="/">全部相册</a></li>
-        <!--<li><a href="#">Library</a></li>-->
-        <li class="active"><%= albumname %></li>
-    </ol>
-    <div class="row">
-        <% for (let i = 0;i < Pics.length;i++){ %>
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img src="<%= Pics[i] %>" alt="...">
-            </a>
+    <form method="post" action="#" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputEmail1">选择目录</label>
+            <select class="form-control" name="dir">
+                <% for (let i = 0;i< Albums.length;i++){ %>
+                <option><%= Albums[i] %></option>
+                <% } %>
+            </select>
         </div>
-        <% } %>
-    </div>
+        <div class="form-group">
+            <label for="exampleInputFile">文件上传</label>
+            <input type="file" id="exampleInputFile" name="file">
+            <p class="help-block">请选择文件上传</p>
+        </div>
+        <button type="submit" class="btn btn-default">上传</button>
+    </form>
 </div>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
