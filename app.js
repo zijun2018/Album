@@ -15,6 +15,9 @@ app.use(express.static("./public"));
 app.use(express.static("./uploads"));
 app.get("/", route.showIndex);
 app.get("/:albumName", route.showPic);
+app.get("/upload",route.showUpload);
+app.post("/upload",route.showPost);
+
 
 //404页面
 app.use("/",function (req,res) {
